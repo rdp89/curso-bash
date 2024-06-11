@@ -1,97 +1,206 @@
-## Temario de Bash
+# 1. Introducción a Bash
 
-### Introducción a Bash
-- **¿Qué es Bash?**
-  - Bash es un intérprete de comandos de Unix que provee una interfaz entre el usuario y el sistema operativo.
-  - Historia y evolución de Bash.
-  - Importancia en la administración de sistemas y desarrollo.
+## Historia y Evolución de Bash
+- **Origen de Unix y el shell:**
+  - Unix se desarrolló en AT&T Bell Labs a finales de los años 60. Originalmente, los usuarios interactuaban con Unix a través del shell de Thompson, que fue uno de los primeros shells.
+  - En los años 70, se creó el Bourne shell (`sh`) por Stephen Bourne, que se convirtió en el shell estándar de Unix.
+- **Nacimiento de Bash:**
+  - Bash (Bourne Again Shell) fue creado por Brian Fox para el Proyecto GNU como un reemplazo libre para el Bourne shell, y se lanzó por primera vez en 1989.
+  - Bash combina características de `sh`, `csh` (C shell), y `ksh` (Korn shell), proporcionando una funcionalidad rica y mejorada.
+- **Evolución y versiones:**
+  - Desde su lanzamiento, Bash ha pasado por varias versiones, añadiendo características y mejoras de rendimiento. La versión actual (a la fecha de corte de mi conocimiento) es Bash 5.1.
+  - Bash es ahora el shell por defecto en la mayoría de las distribuciones de Linux y macOS, y está disponible en Windows a través del subsistema Windows para Linux (WSL).
 
-- **Entorno de trabajo**
-  - Descripción del entorno de trabajo de Bash: terminal, shell, variables de entorno, configuraciones, etc.
-  - Funciones y características avanzadas de Bash: expansión de comandos, redirección, tuberías, historial de comandos, etc.
+## Instalación y Configuración de Bash
+
+### Instalación en Diferentes Sistemas Operativos
+- **Linux:**
+  - Bash generalmente viene preinstalado en casi todas las distribuciones de Linux. Puedes verificar la versión instalada usando `bash --version`.
+  - Para instalar o actualizar Bash, puedes usar el gestor de paquetes de tu distribución. Por ejemplo, en Ubuntu/Debian:
+    ```bash
+    sudo apt update
+    sudo apt install bash
+    ```
+- **macOS:**
+  - macOS también incluye Bash de forma predeterminada, aunque podría no ser la versión más reciente debido a las restricciones de la licencia GPLv3.
+  - Para instalar la última versión de Bash, puedes usar Homebrew:
+    ```bash
+    brew install bash
+    ```
+  - Para cambiar el shell predeterminado a la versión instalada por Homebrew:
+    ```bash
+    sudo chsh -s /usr/local/bin/bash
+    ```
+- **Windows:**
+  - En Windows, puedes usar Bash a través del Subsistema Windows para Linux (WSL). Para instalar WSL y Bash:
+    1. Activa el Subsistema de Windows para Linux en la configuración de Windows o mediante PowerShell:
+       ```powershell
+       wsl --install
+       ```
+    2. Reinicia tu PC y selecciona una distribución de Linux desde Microsoft Store (por ejemplo, Ubuntu).
+    3. Una vez instalada la distribución, abre la terminal y Bash estará disponible.
+
+### Personalización del Entorno Bash
+
+#### Archivos de Configuración
+- **.bashrc:**
+  - Este archivo se ejecuta para shells interactivos no de inicio. Es ideal para configuraciones específicas del usuario, alias y funciones.
+  - Ubicación: `~/.bashrc`
+  - Ejemplo:
+    ```bash
+    # Alias
+    alias ll='ls -la'
+    
+    # Prompt personalizado
+    PS1='\u@\h:\w\$ '
+    ```
+- **.bash_profile y .bash_login:**
+  - Estos archivos se ejecutan para shells de inicio (login shells). `~/.bash_profile` tiene prioridad sobre `~/.bash_login`.
+  - Ubicación: `~/.bash_profile` o `~/.bash_login`
+  - Ejemplo:
+    ```bash
+    # Cargar .bashrc si existe
+    if [ -f ~/.bashrc ]; then
+      source ~/.bashrc
+    fi
+    ```
+- **.profile:**
+  - Similar a `.bash_profile`, pero no es específico de Bash y puede ser usado por otros shells.
+  - Ubicación: `~/.profile`
+
+#### Configuración de Alias, Variables y Funciones
+- **Alias:**
+  - Definición de comandos cortos para comandos más largos.
+  - Ejemplo:
+    ```bash
+    alias gs='git status'
+    alias ga='git add'
+    alias gc='git commit -m'
+    ```
+- **Variables de entorno:**
+  - Configuración de variables que afectan al comportamiento del shell y programas.
+  - Ejemplo:
+    ```bash
+    export EDITOR=vim
+    export PATH=$PATH:/usr/local/bin
+    ```
+- **Funciones:**
+  - Definición de funciones personalizadas para tareas repetitivas.
+  - Ejemplo:
+    ```bash
+    mkcd() {
+      mkdir -p "$1"
+      cd "$1"
+    }
+    ```
+
+#### Personalización del Prompt (PS1)
+- **Variables de Prompt:**
+  - `PS1` es la variable que define el prompt principal del shell.
+  - Ejemplo básico:
+    ```bash
+    PS1='\u@\h:\w\$ '
+    ```
+  - Ejemplo avanzado con colores:
+    ```bash
+    PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
+    ```
+  - Variables comunes en PS1:
+    - `\u`: Nombre de usuario
+    - `\h`: Nombre del host
+    - `\w`: Directorio de trabajo actual
+
+#### Ejemplos de Configuraciones Avanzadas
+- **Archivo `.bashrc` Avanzado:**
+  ```bash
+  # Alias útiles
+  alias ll='ls -la'
+  alias gs='git status'
+  alias gp='git pull'
   
-  **Ejercicio práctico:**
-  - Escribir un script que muestre información sobre el sistema, como la versión del kernel, la cantidad de memoria, etc.
+  # Variables de entorno
+  export EDITOR=vim
+  export PATH=$PATH:/usr/local/bin
 
-### Comandos básicos de Bash
-- **Comandos básicos**
-  - Descripción detallada de los comandos básicos de Bash y sus opciones: `ls`, `cd`, `pwd`, `mkdir`, `rm`, `cp`, `mv`, etc.
-  - Ejemplos prácticos de uso de cada comando con casos de uso comunes en entornos de administración de sistemas y desarrollo.
+  # Funciones
+  mkcd() {
+    mkdir -p "$1"
+    cd "$1"
+  }
 
-  **Ejercicio práctico:**
-  - Escribir un script que cree una estructura de directorios para un nuevo proyecto, incluyendo subdirectorios para código fuente, documentos, y pruebas.
+  # Prompt personalizado
+  PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
 
-### Variables y expresiones
-- **Variables en Bash**
-  - Declaración y uso de variables en Bash: variables locales, de entorno, y especiales.
-  - Expansión de variables y sustitución de comandos.
-  - Ejemplos avanzados de asignación y expansión de variables.
-  
-  **Ejercicio práctico:**
-  - Escribir un script que acepte dos números como entrada y muestre su suma, resta, multiplicación, y división.
+  # Cargar nvm (Node Version Manager) si existe
+  if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    source "$HOME/.nvm/nvm.sh"
+  fi
+  ```
 
-- **Expresiones aritméticas**
-  - Uso avanzado de expresiones aritméticas en Bash con operadores complejos y funciones integradas.
-  - Ejemplos de cálculos avanzados y manipulación de números.
+# Ejercicios de Introducción a Bash
+## 1. Historia y Evolución de Bash
+1. **Investigación y comparación:**
+   - Investiga las diferencias entre el Bourne shell (`sh`) y Bash. Escribe un breve resumen destacando al menos cinco diferencias clave.
+2. **Versión de Bash:**
+   - Verifica la versión de Bash instalada en tu sistema utilizando el comando apropiado.
+   - Escribe un breve resumen de las características nuevas que se introdujeron en tu versión actual de Bash (puedes buscar en la documentación oficial de Bash).
 
-  **Ejercicio práctico:**
-  - Escribir un script que calcule el factorial de un número dado por el usuario.
+## 2. Instalación y Configuración de Bash
 
-### Estructuras de control
-- **Condicionales**
-  - Aplicación avanzada de condicionales en Bash con operadores lógicos y de comparación complejos.
-  - Ejemplos prácticos de condicionales anidados y múltiples.
+### Instalación en Diferentes Sistemas Operativos
+1. **Instalación en Linux:**
+   - Verifica si Bash está instalado en tu sistema Linux. Si no está instalado, instálalo usando el gestor de paquetes de tu distribución.
+   - Muestra el resultado del comando que utilizaste para verificar la instalación y la versión de Bash.
+2. **Instalación en macOS:**
+   - Si estás en macOS, instala la última versión de Bash usando Homebrew. Cambia el shell predeterminado a la versión recién instalada.
+   - Muestra el comando que utilizaste para cambiar el shell predeterminado.
+3. **Instalación en Windows:**
+   - Si estás en Windows, activa el Subsistema Windows para Linux (WSL) e instala una distribución de Linux desde Microsoft Store.
+   - Muestra los pasos que seguiste y verifica la instalación de Bash.
 
-  **Ejercicio práctico:**
-  - Escribir un script que clasifique a una persona según su edad en categorías como niño, adolescente, adulto, etc.
+### Personalización del Entorno Bash
 
-- **Bucles**
-  - Exploración detallada de los bucles en Bash con casos de uso avanzados y técnicas de optimización.
-  - Ejemplos prácticos de bucles para procesamiento de archivos, gestión de listas, etc.
+#### Archivos de Configuración
+1. **.bashrc:**
+   - Crea o modifica tu archivo `~/.bashrc` para incluir al menos tres alias nuevos y un prompt personalizado que incluya tu nombre de usuario y el directorio actual.
+   - Muestra el contenido de tu `~/.bashrc`.
+2. **.bash_profile:**
+   - Asegúrate de que tu `~/.bash_profile` carga `~/.bashrc` si existe. Si no tienes un `~/.bash_profile`, créalo.
+   - Muestra el contenido de tu `~/.bash_profile`.
 
-  **Ejercicio práctico:**
-  - Escribir un script que itere sobre los archivos de un directorio y muestre información sobre cada uno, como tamaño, permisos, etc.
+#### Configuración de Alias, Variables y Funciones
+1. **Alias:**
+   - Crea alias para los siguientes comandos:
+     - `ll` para `ls -la`
+     - `gs` para `git status`
+     - `gp` para `git pull`
+   - Verifica que los alias funcionen correctamente.
+2. **Variables de Entorno:**
+   - Establece las siguientes variables de entorno en tu `~/.bashrc`:
+     - `EDITOR` a `vim`
+     - `PATH` para incluir `/usr/local/bin`
+   - Verifica que las variables de entorno se hayan establecido correctamente.
+3. **Funciones:**
+   - Crea una función llamada `mkcd` que cree un directorio y luego cambie a ese directorio.
+   - Prueba la función para asegurarte de que funciona correctamente.
 
-### Funciones
-- **Funciones en Bash**
-  - Creación y uso de funciones en Bash con parámetros y valores de retorno.
-  - Ejemplos avanzados de funciones para tareas específicas de administración de sistemas y desarrollo.
+#### Personalización del Prompt (PS1)
+1. **Prompt Básico:**
+   - Personaliza tu `PS1` para que muestre tu nombre de usuario, nombre del host y el directorio de trabajo actual.
+   - Muestra el comando que usaste para personalizar el prompt.
+2. **Prompt con Colores:**
+   - Personaliza tu `PS1` para que el nombre de usuario aparezca en verde, el nombre del host en amarillo y el directorio de trabajo en azul.
+   - Muestra el comando que usaste para personalizar el prompt con colores.
 
-  **Ejercicio práctico:**
-  - Escribir un script que implemente una función para calcular el área de diferentes formas geométricas.
+#### Ejemplos de Configuraciones Avanzadas
+1. **.bashrc Avanzado:**
+   - Configura tu `~/.bashrc` con alias útiles, variables de entorno, una función personalizada y un prompt colorido.
+   - Muestra el contenido final de tu `~/.bashrc`.
 
-### Trabajo con archivos y directorios
-- **Manipulación de archivos**
-  - Prácticas avanzadas de manipulación de archivos en Bash: gestión de permisos, análisis de contenido, etc.
-  - Ejemplos prácticos de uso de herramientas de línea de comandos para manipulación de archivos.
+## Recursos
+- **Documentación Oficial de Bash:** [GNU Bash Manual](https://www.gnu.org/software/bash/manual/bash.html)
+- **Tutoriales en línea:**
+  - [Bash Scripting Tutorial](https://linuxconfig.org/bash-scripting-tutorial-for-beginners)
+  - [The Linux Command Line](https://linuxcommand.org/tlcl.php)
 
-  **Ejercicio práctico:**
-  - Escribir un script que busque archivos duplicados en un directorio y muestre los resultados.
-
-- **Manipulación de directorios**
-  - Exploración avanzada de la manipulación de directorios en Bash: gestión de enlaces simbólicos, archivos ocultos, etc.
-  - Ejemplos prácticos de uso de comandos para navegación y manipulación de directorios.
-
-  **Ejercicio práctico:**
-  - Escribir un script que renombre archivos en un directorio según un patrón específico.
-
-### Expresiones regulares
-- **Expresiones regulares en Bash**
-  - Uso avanzado de expresiones regulares en Bash para búsqueda, reemplazo y validación de patrones complejos.
-  - Ejemplos prácticos de uso de expresiones regulares en scripts y comandos de Bash.
-
-  **Ejercicio práctico:**
-  - Escribir un script que busque líneas que contengan direcciones IP válidas en un archivo de registro.
-
-### Scripting avanzado
-- **Depuración de scripts**
-  - Técnicas avanzadas de depuración de scripts Bash: uso de herramientas de depuración, análisis de errores, etc.
-  - Ejemplos prácticos de depuración de scripts en situaciones reales.
-- **Control de procesos**
-  - Gestión avanzada de procesos en Bash: control de ejecución, manejo de señales, etc.
-  - Ejemplos prácticos de gestión de procesos en scripts y entornos de producción.
-
-### Ejercicios prácticos adicionales
-- **Ejercicios prácticos avanzados**
-  - Serie de ejercicios desafiantes para aplicar los conceptos aprendidos en situaciones reales.
-  - Ejemplos de problemas complejos que podrían encontrar en entornos de administración de sistemas y desarrollo.
+Realiza estos ejercicios y revisa la documentación proporcionada para profundizar en cada tema. Si necesitas más detalles o tienes alguna pregunta sobre los ejercicios, ¡házmelo saber!
