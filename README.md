@@ -1,175 +1,50 @@
-### Temario para Curso de Bash
+## Temario de Bash
 
-#### **Módulo 1: Introducción a Bash**
-1. **Qué es Bash**
-   - Historia y versiones.
-   - Ventajas y usos comunes.
-2. **Primeros pasos en la terminal**
-   - Abrir la terminal.
-   - Comandos básicos: `ls`, `pwd`, `cd`, `echo`.
-   - Ejemplo:
-     ```bash
-     echo "Hola, Mundo"
-     ```
+### Introducción a Bash
+- **¿Qué es Bash?**
+  - Bash es un intérprete de comandos de Unix que provee una interfaz entre el usuario y el sistema operativo.
+  - Historia y evolución de Bash.
+  - Importancia en la administración de sistemas y desarrollo.
 
-#### **Módulo 2: Navegación y Gestión de Archivos**
-1. **Comandos de navegación**
-   - `cd`, `pwd`, `ls`, `tree`.
-   - Ejemplo:
-     ```bash
-     cd /home/user
-     pwd
-     ls -l
-     ```
-2. **Manipulación de archivos y directorios**
-   - Crear, copiar, mover, renombrar y eliminar archivos/directorios (`touch`, `cp`, `mv`, `rm`, `mkdir`, `rmdir`).
-   - Ejemplo:
-     ```bash
-     touch archivo.txt
-     mkdir carpeta
-     mv archivo.txt carpeta/
-     ```
-3. **Permisos de archivos**
-   - Comandos `chmod`, `chown`, `chgrp`.
-   - Ejemplo:
-     ```bash
-     chmod 755 archivo.txt
-     chown user:grupo archivo.txt
-     ```
+- **Entorno de trabajo**
+  - Descripción del entorno de trabajo de Bash: terminal, shell, variables de entorno, etc.
 
-#### **Módulo 3: Trabajando con Texto**
-1. **Comandos para manipulación de texto**
-   - `cat`, `more`, `less`, `head`, `tail`.
-   - Ejemplo:
-     ```bash
-     cat archivo.txt
-     head -n 10 archivo.txt
-     ```
-2. **Buscar y filtrar texto**
-   - `grep`, `sort`, `uniq`, `wc`.
-   - Ejemplo:
-     ```bash
-     grep "palabra" archivo.txt
-     sort archivo.txt | uniq
-     wc -l archivo.txt
-     ```
+### Comandos básicos de Bash
+- **Comandos básicos**
+  - Ejemplos adicionales: `ls -l`, `cd -`, `mkdir -p directorio/subdirectorio`, `rm -i archivo.txt`.
 
-#### **Módulo 4: Redirección y Pipes**
-1. **Redirección de entrada y salida**
-   - `>`, `>>`, `<`, `<<`.
-   - Ejemplo:
-     ```bash
-     echo "Texto" > archivo.txt
-     cat archivo.txt >> archivo_copia.txt
-     ```
-2. **Uso de pipes (`|`)**
-   - Conectar comandos.
-   - Ejemplo:
-     ```bash
-     cat archivo.txt | grep "palabra"
-     ```
+### Variables y expresiones
+- **Variables en Bash**
+  - Ejemplos adicionales: `nombre="Rafa"`, `echo "Hola, $nombre"`.
+- **Expresiones aritméticas**
+  - Ejemplos adicionales: `resultado=$((3 + 5))`, `resultado=$((10 / 2))`.
 
-#### **Módulo 5: Variables y Operaciones**
-1. **Variables en Bash**
-   - Definición y uso.
-   - Ejemplo:
-     ```bash
-     nombre="Mundo"
-     echo "Hola, $nombre"
-     ```
-2. **Operaciones aritméticas**
-   - `expr`, `$(( ))`.
-   - Ejemplo:
-     ```bash
-     resultado=$((5 + 3))
-     echo $resultado
-     ```
+### Estructuras de control
+- **Condicionales**
+  - Ejemplos adicionales: `if [ "$edad" -ge 18 ] && [ "$edad" -lt 65 ]; then ... fi`.
+- **Bucles**
+  - Ejemplos adicionales: `for color in "${colores[@]}"; do ... done`.
 
-#### **Módulo 6: Estructuras de Control**
-1. **Condicionales (`if`, `else`, `elif`)**
-   - Sintaxis y ejemplos.
-   - Ejemplo:
-     ```bash
-     if [ -f archivo.txt ]; then
-       echo "El archivo existe"
-     else
-       echo "El archivo no existe"
-     fi
-     ```
-2. **Bucles (`for`, `while`)**
-   - Sintaxis y ejemplos.
-   - Ejemplo:
-     ```bash
-     for i in {1..5}; do
-       echo "Número $i"
-     done
-     ```
+### Funciones
+- **Funciones en Bash**
+  - Ejemplos adicionales: `function saludar { ... }`.
 
-#### **Módulo 7: Funciones en Bash**
-1. **Definición y uso de funciones**
-   - Crear y llamar funciones.
-   - Ejemplo:
-     ```bash
-     function saludo {
-       echo "Hola, $1"
-     }
-     saludo Mundo
-     ```
+### Trabajo con archivos y directorios
+- **Manipulación de archivos**
+  - Ejemplos adicionales: `chmod +x script.sh`, `cat archivo1.txt archivo2.txt > archivo_concatenado.txt`.
+- **Manipulación de directorios**
+  - Ejemplos adicionales: `ln -s /ruta/a/archivo /ruta/a/enlace_simbolico`, `cd ..`.
 
-#### **Módulo 8: Scripts Avanzados**
-1. **Parámetros y argumentos en scripts**
-   - Uso de `$1`, `$2`, etc.
-   - Ejemplo:
-     ```bash
-     #!/bin/bash
-     echo "El primer argumento es $1"
-     ```
-2. **Depuración de scripts**
-   - Uso de `set -x` y `set +x`.
-   - Ejemplo:
-     ```bash
-     set -x
-     ls
-     set +x
-     ```
+### Expresiones regulares
+- **Expresiones regulares en Bash**
+  - Ejemplos adicionales: `grep "patrón" archivo.txt`, `if [[ "$correo" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then ... fi`.
 
-#### **Módulo 9: Gestión de Procesos**
-1. **Control de procesos**
-   - `ps`, `top`, `kill`.
-   - Ejemplo:
-     ```bash
-     ps aux | grep bash
-     kill -9 PID
-     ```
+### Scripting avanzado
+- **Depuración de scripts**
+  - Ejemplos adicionales: `set -x`, `set -e`.
+- **Control de procesos**
+  - Ejemplos adicionales: `proceso &`, `kill -SIGTERM PID`.
 
-#### **Módulo 10: Automatización y Tareas Programadas**
-1. **Uso de `cron` y `crontab`**
-   - Programar tareas.
-   - Ejemplo:
-     ```bash
-     # Editar crontab
-     crontab -e
-     # Añadir tarea: ejecutar script.sh cada día a las 2am
-     0 2 * * * /ruta/a/script.sh
-     ```
-
-### Ejemplo de Proyecto Final
-Desarrollar un script que realice una copia de seguridad de un directorio específico, comprimiéndolo y moviéndolo a otra ubicación con una estructura de nombres basada en la fecha y hora.
-
-```bash
-#!/bin/bash
-# Script de copia de seguridad
-
-# Directorios
-ORIGEN="/ruta/al/directorio"
-DESTINO="/ruta/de/backup"
-
-# Nombre del archivo de backup con fecha y hora
-FECHA=$(date +%Y%m%d_%H%M%S)
-BACKUP="backup_$FECHA.tar.gz"
-
-# Crear el archivo comprimido
-tar -czf $DESTINO/$BACKUP $ORIGEN
-
-# Mostrar mensaje de éxito
-echo "Copia de seguridad completada: $DESTINO/$BACKUP"
+### Ejercicios prácticos
+- **Ejercicios prácticos avanzados**
+  - Ejemplo adicional: Escribir un script que analice un archivo de registro y muestre estadísticas.
