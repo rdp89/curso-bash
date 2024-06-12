@@ -6,4 +6,4 @@
 
 1. [Lección 1: Introducción a Bash](./l1.md)
 
-Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno
+Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno.
