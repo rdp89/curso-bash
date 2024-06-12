@@ -5,5 +5,6 @@
 ## Índice del Curso
 
 1. [Lección 1: Introducción a Bash](./l1.md)
+2. [Lección 2: Comandos básicos de Unix/Linux](./l2.md)
 
 Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno.
