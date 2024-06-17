@@ -8,3 +8,9 @@
 2. [Lección 2: Comandos básicos de Unix/Linux](./l2.md)
 
 Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno.
+
+## Recursos
+- **Documentación Oficial de Bash:** [GNU Bash Manual](https://www.gnu.org/software/bash/manual/bash.html)
+- **Tutoriales en línea:**
+  - [Bash Scripting Tutorial](https://linuxconfig.org/bash-scripting-tutorial-for-beginners)
+  - [The Linux Command Line](https://linuxcommand.org/tlcl.php)
