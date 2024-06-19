@@ -4,6 +4,11 @@
 
 ¡Bienvenido/a a mi curso de Bash! Con este curso sentarás una base en el manejo de la terminal de linux, cada punto está compuesto por unos ejercicios para que termines de comprender todos los conceptos.
 
+## Requisitos
+1. Un ordenador con sitema Unix/Linux, MacOs o Windows 10/11
+2. Informática básica
+3. Ganas de aprender
+
 ## Índice del Curso
 
 1. [Introducción a Bash](./l1.md)
