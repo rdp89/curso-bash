@@ -15,6 +15,15 @@
 2. [Comandos básicos de Unix/Linux](./l2.md)
 3. [Permisos y propiedades](./l3.md)
 4. [Redirección y tuberías](./l4.md)
+5. Variables y operaciones básicas
+6. Estructuras de control
+7. Funciones
+8. Gestión de procesos
+9. Manipulación de texto
+10. Interacción con sistemas de archivos
+11. Scripting avanzado
+12. Integración y automatización
+13. Casos prácticos
 
 Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno.
 
