@@ -15,7 +15,7 @@
 2. [Comandos básicos de Unix/Linux](./l2.md)
 3. [Permisos y propiedades](./l3.md)
 4. [Redirección y tuberías](./l4.md)
-5. Variables y operaciones básicas
+5. [Variables y operaciones básicas](./l5.md)
 6. Estructuras de control
 7. Funciones
 8. Gestión de procesos
