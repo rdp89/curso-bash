@@ -18,7 +18,7 @@
 5. [Variables y operaciones básicas](./l5.md)
 6. [Estructuras de control](./l6.md)
 7. [Funciones](./l7.md)
-8. Gestión de procesos
+8. [Gestión de procesos](./l8.md)
 9. Manipulación de texto
 10. Interacción con sistemas de archivos
 11. Scripting avanzado
