@@ -19,7 +19,7 @@
 6. [Estructuras de control](./l6.md)
 7. [Funciones](./l7.md)
 8. [Gestión de procesos](./l8.md)
-9. Manipulación de texto
+9. [Manipulación de texto](./l9.md)
 10. Interacción con sistemas de archivos
 11. Scripting avanzado
 12. Integración y automatización
