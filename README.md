@@ -20,7 +20,7 @@
 7. [Funciones](./l7.md)
 8. [Gestión de procesos](./l8.md)
 9. [Manipulación de texto](./l9.md)
-10. Interacción con sistemas de archivos
+10. Interacción avanzada con el sistema de archivos
 11. Scripting avanzado
 12. Integración y automatización
 13. Casos prácticos
