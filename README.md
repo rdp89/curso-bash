@@ -21,7 +21,7 @@
 8. [Gestión de procesos](./l8.md)
 9. [Manipulación de texto](./l9.md)
 10. [Interacción avanzada con el sistema de archivos](./l10.md)
-11. Integración y automatización
+11. [Integración y automatización](./l11.md)
 12. Casos prácticos
 
 Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno.
