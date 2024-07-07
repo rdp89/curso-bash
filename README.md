@@ -24,7 +24,7 @@
 11. [Integración y automatización](./l11.md)
 12. [Casos prácticos](./l12.md)
 
-Iré completando los vídeos con las soluciones de cada punto
+**Iré completando con los vídeos explicando las soluciones de cada punto**
 
 ## Recursos
 - **Documentación Oficial de Bash:** [GNU Bash Manual](https://www.gnu.org/software/bash/manual/bash.html)
