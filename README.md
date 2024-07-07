@@ -22,9 +22,9 @@
 9. [Manipulación de texto](./l9.md)
 10. [Interacción avanzada con el sistema de archivos](./l10.md)
 11. [Integración y automatización](./l11.md)
-12. Casos prácticos
+12. [Casos prácticos](./l12.md)
 
-Iré completando los puntos del curso más adelante junto con la solución de los ejercicios de cada uno.
+Iré completando los vídeos con las soluciones de cada punto
 
 ## Recursos
 - **Documentación Oficial de Bash:** [GNU Bash Manual](https://www.gnu.org/software/bash/manual/bash.html)
